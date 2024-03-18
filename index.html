@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTSP</title>
+</head>
+<body>
+    <h1 id="greetings"></h1>
+    <p id="date"></p>
+    <button onclick=quizziz()>Start Quiz</button>
+    <p id="confirm"></p>
+    
+
+    <script>
+        //Amalgamation of codes
+        var name = prompt("What is your name? ");
+        var datetime =new Date();
+
+        
+        document.getElementById("greetings").innerHTML="Welcome to the Simple Math Quiz, " + name + "!";
+        document.getElementById("date").innerHTML="Today's Date and Time: " + datetime;
+
+
+
+        //prompt
+        function quizziz() {
+
+        var a = Math.round(Math.random()*10);
+        var b = Math.round(Math.random()*10);
+        var operator = Math.round(Math.random()*10);
+        var operation = "";
+
+        if (operator<=2) {
+            var operation = "+"
+            var correctans = a + b;
+
+        } else if (operator<=4) {
+            var operation = "-"
+            var correctans = a - b;
+
+        } else if (operator<=6) {
+            var operation = "*"
+            var correctans = a * b;    
+
+        } else if (operator<=8) {
+            var operation = "/"
+            var correctans = a / b;
+            correctans = correctans.toFixed(2);
+
+        } else if (operator<=10) {
+            var operation = "%"
+            var correctans = a % b;
+            correctans = correctans.toFixed(2);
+
+        }
+
+            var tentaanswer = prompt('Hi ' + name + ', let\'s solve a math problem. \n' + 'What is '+ a + ' '  + operation + ' ' + b + '\n' + 'Enter your answer: ');
+            
+
+            if (isNaN(tentaanswer)||tentaanswer==0) {
+                alert("You have written a non number answer!or NO answer at all.")
+            } else {
+                if (tentaanswer == correctans) {
+                document.getElementById("confirm").innerHTML="Congratulations, " + name +"!, That's correct! Wanna test out more? \n";
+                } else {
+                document.getElementById("confirm").innerHTML="Wrong answer, " + name +", The correct answer is: " + correctans + ' Try Again! \n';
+                }
+            }
+            
+
+            
+        }
+        
+
+    </script>
+</body>
+</html>
